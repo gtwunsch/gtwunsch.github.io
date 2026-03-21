@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartana Research</title>
+<style>
+  :root { --bg: #0f1117; --surface: #1a1d27; --border: #2e3345; --text: #e4e6ed; --text-dim: #8b8fa3; --accent: #6c9bff; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  .wrapper { max-width: 560px; padding: 48px 24px; text-align: center; }
+  .eyebrow { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+  h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+  .sub { color: var(--text-dim); font-size: 15px; margin-bottom: 40px; }
+  a.report {
+    display: block; padding: 20px; margin: 10px 0; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; text-decoration: none; color: var(--text); text-align: left; transition: border-color 0.15s;
+  }
+  a.report:hover { border-color: var(--accent); }
+  a.report .title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+  a.report .date { font-size: 12px; color: var(--text-dim); }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="eyebrow">Cartana Research</div>
+  <h1>Relatórios</h1>
+  <p class="sub">Análises de mercado e ações brasileiras.</p>
+  <a class="report" href="relatorios/acoes-subvalorizadas-mar-2026.html">
+    <div class="title">Ações Subvalorizadas na B3</div>
+    <div class="date">21 de março de 2026 · Macro + Value + Smart Money</div>
+  </a>
+</div>
+</body>
+</html>

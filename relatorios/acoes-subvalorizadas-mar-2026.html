@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ações Subvalorizadas B3 — Março 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface-2: #232733;
+    --border: #2e3345;
+    --text: #e4e6ed;
+    --text-dim: #8b8fa3;
+    --accent: #6c9bff;
+    --green: #4ade80;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --orange: #fb923c;
+    --cyan: #22d3ee;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Layout ── */
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 48px 0 32px;
+  }
+  header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  header .subtitle {
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 640px;
+  }
+  header .meta {
+    margin-top: 20px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  header .meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* ── Navigation ── */
+  nav.toc {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 17, 23, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    overflow-x: auto;
+  }
+  nav.toc ul {
+    list-style: none;
+    display: flex;
+    gap: 0;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  nav.toc a {
+    display: block;
+    padding: 14px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+  }
+  nav.toc a:hover, nav.toc a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── Sections ── */
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  h2 .section-num {
+    color: var(--accent);
+    font-weight: 400;
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  .section-desc {
+    color: var(--text-dim);
+    font-size: 14px;
+    margin-bottom: 32px;
+    max-width: 680px;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 32px 0 16px;
+    color: var(--text);
+  }
+
+  /* ── KPI Strip ── */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .kpi {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .kpi .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+  .kpi .value {
+    font-size: 22px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .kpi .direction {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  .kpi .up { color: var(--green); }
+  .kpi .down { color: var(--red); }
+  .kpi .neutral { color: var(--yellow); }
+
+  /* ── Tables ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0 24px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+  }
+  thead th {
+    background: var(--surface);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-dim);
+    padding: 12px 14px;
+    text-align: left;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+  }
+  thead th.num { text-align: right; }
+  tbody td {
+    padding: 11px 14px;
+    border-top: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody td.num { text-align: right; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
+  tbody tr:hover { background: rgba(108, 155, 255, 0.04); }
+  .ticker {
+    font-weight: 700;
+    color: var(--accent);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+  }
+  .company-name { font-weight: 500; }
+
+  /* ── Heat Map ── */
+  .heatmap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+    margin: 16px 0 24px;
+  }
+  .heat-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  .heat-item .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .heat-item .reason {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+  .dot.bull { background: var(--green); box-shadow: 0 0 8px rgba(74,222,128,0.3); }
+  .dot.neutral { background: var(--yellow); box-shadow: 0 0 8px rgba(251,191,36,0.2); }
+  .dot.bear { background: var(--red); box-shadow: 0 0 8px rgba(248,113,113,0.3); }
+
+  /* ── Badges / Pills ── */
+  .pill {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .pill.t1 { background: rgba(74,222,128,0.15); color: var(--green); }
+  .pill.t2 { background: rgba(108,155,255,0.15); color: var(--accent); }
+  .pill.t3 { background: rgba(251,191,36,0.15); color: var(--yellow); }
+  .pill.sources { background: rgba(108,155,255,0.08); color: var(--text-dim); }
+
+  .source-count {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+
+  /* ── Cards ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .card .card-sub {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .card p, .card ul {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+  .card ul { padding-left: 16px; }
+  .card li { margin-bottom: 4px; }
+  .card .highlight {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ── Risk Table ── */
+  .risk-bar {
+    display: inline-block;
+    height: 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+
+  /* ── Callout ── */
+  .callout {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  .callout strong { color: var(--text); }
+
+  /* ── Footer ── */
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ── Portfolio ── */
+  .portfolio-bar {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 32px;
+    margin: 16px 0;
+  }
+  .portfolio-bar .seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--bg);
+    white-space: nowrap;
+  }
+  .portfolio-bar .seg.core { background: var(--green); flex: 60; }
+  .portfolio-bar .seg.sat { background: var(--accent); flex: 30; }
+  .portfolio-bar .seg.spec { background: var(--yellow); flex: 10; }
+
+  .portfolio-legend {
+    display: flex;
+    gap: 24px;
+    margin: 8px 0 24px;
+    font-size: 13px;
+  }
+  .portfolio-legend span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .portfolio-legend .swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  /* ── Manager consensus ── */
+  .consensus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  @media (max-width: 700px) {
+    .consensus-grid { grid-template-columns: 1fr; }
+    .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+    nav.toc a { padding: 12px 10px; font-size: 12px; }
+  }
+
+  .agree-card, .disagree-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .agree-card { border-left: 3px solid var(--green); }
+  .disagree-card { border-left: 3px solid var(--orange); }
+  .agree-card h4 { color: var(--green); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .disagree-card h4 { color: var(--orange); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .agree-card li, .disagree-card li { font-size: 13px; color: var(--text-dim); margin-bottom: 6px; line-height: 1.5; }
+
+  /* ── Scroll highlight ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════ HEADER ════════════════════════ -->
+<div class="container">
+<header>
+  <div class="eyebrow">Cartana Research</div>
+  <h1>Ações Subvalorizadas na B3</h1>
+  <p class="subtitle">Análise cruzada: screening quantitativo, cenário macro, visões de gestores de hedge funds, teses geopolíticas e value investing profundo.</p>
+  <div class="meta">
+    <span>21 de março de 2026</span>
+    <span>363 ações analisadas</span>
+    <span>5 fontes cruzadas</span>
+    <span>10+ gestores pesquisados</span>
+  </div>
+</header>
+</div>
+
+<!-- ════════════════════════ NAV ════════════════════════ -->
+<nav class="toc">
+  <ul>
+    <li><a href="#macro">Macro</a></li>
+    <li><a href="#setores">Setores</a></li>
+    <li><a href="#top15">Top 15</a></li>
+    <li><a href="#gestores">Gestores</a></li>
+    <li><a href="#catalisadores">Catalisadores</a></li>
+    <li><a href="#riscos">Riscos</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════════════ 1. MACRO ════════════════════════ -->
+<section id="macro">
+<div class="container fade-in">
+  <h2><span class="section-num">01</span> Contexto Macro</h2>
+  <p class="section-desc">Variáveis-chave que determinam a direção do mercado brasileiro em março de 2026.</p>
+
+  <div class="kpi-strip">
+    <div class="kpi">
+      <div class="label">Selic</div>
+      <div class="value">14.75%</div>
+      <div class="direction down">Corte 25bp em 18/mar</div>
+    </div>
+    <div class="kpi">
+      <div class="label">IPCA 12m</div>
+      <div class="value">3.81%</div>
+      <div class="direction up">Focus: 4.10%</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Câmbio</div>
+      <div class="value">R$ 5.31</div>
+      <div class="direction neutral">Justo: R$4.40 (Verde)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Brent</div>
+      <div class="value">US$ 105</div>
+      <div class="direction up">Crise Hormuz</div>
+    </div>
+    <div class="kpi">
+      <div class="label">PIB 2026</div>
+      <div class="value">1.7-2.2%</div>
+      <div class="direction down">Desacelerando</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Ibovespa P/E</div>
+      <div class="value">~12x</div>
+      <div class="direction neutral">vs 13x hist.</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Fluxo Gringo</div>
+      <div class="value">R$ 42.6B</div>
+      <div class="direction up">Jan-Fev recorde</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Variável dominante: Crise do Estreito de Hormuz.</strong> O Irã fechou o estreito em 4/mar após strikes US-Israel. ~20M bbl/dia interrompidos. Se resolver rápido, ciclo de corte acelera e rally poderoso. Se persistir, inflação estoura 4.5% e COPOM pausa — mata a tese bull.
+  </div>
+
+  <h3>Cenários</h3>
+  <div class="card-grid">
+    <div class="card" style="border-left: 3px solid var(--green);">
+      <h4>Bull Case</h4>
+      <ul>
+        <li>Hormuz resolve, petróleo recua para US$80</li>
+        <li>Selic cai a 11-12% até dez/26</li>
+        <li>BRL aprecia para ~R$4.80 (carry + rotação EM)</li>
+        <li>Earnings growth de 17% (BTG est.)</li>
+        <li>XP target: Ibovespa a 235.000</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left: 3px solid var(--red);">
+      <h4>Bear Case</h4>
+      <ul>
+        <li>Hormuz persiste, petróleo a US$150+</li>
+        <li>IPCA estoura 4.5%, cortes pausam</li>
+        <li>Estouro fiscal em ano eleitoral</li>
+        <li>China hard landing → minério desaba</li>
+        <li>Reversão rápida do fluxo estrangeiro</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════ 2. SETORES ════════════════════════ -->
+<section id="setores">
+<div class="container fade-in">
+  <h2><span class="section-num">02</span> Mapa de Calor Setorial</h2>
+  <p class="section-desc">Avaliação por setor combinando cenário macro, posicionamento de gestores e tendências geopolíticas.</p>
+
+  <div class="heatmap">
+    <div class="heat-item">
+      <div class="dot bull"></div>
+      <div><strong>Oil & Gas</strong><div class="reason">Hormuz + produção recorde Petrobras + breakeven pré-sal <US$40</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot bull"></div>
+      <div><strong>Utilities</strong><div class="reason">Defensivo, receita regulada, proteção inflacionária, dividendos</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot bull"></div>
+      <div><strong>Bancos</strong><div class="reason">NIM recorde na Selic alta + fluxo estrangeiro + crescimento crédito</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot bull"></div>
+      <div><strong>Seguros</strong><div class="reason">Yield alto, earnings resilientes, BB Seg a 33% desc. do hist.</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot bull"></div>
+      <div><strong>Defesa & Aero</strong><div class="reason">Embraer backlog recorde US$31.6B, orçamento defesa +6.2%</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot neutral"></div>
+      <div><strong>Infraestrutura</strong><div class="reason">PAC R$1.7T + ciclo corte, mas juros altos limitam financiamento</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot neutral"></div>
+      <div><strong>Telecomunicações</strong><div class="reason">FCF forte (TIM 31.6%), oligopólio racional, dividendos crescentes</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot neutral"></div>
+      <div><strong>Papel & Celulose</strong><div class="reason">Exportador natural, BRL fraco ajuda, Suzano custo mín. 4 anos</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot neutral"></div>
+      <div><strong>Mineração</strong><div class="reason">Demanda estrutural fraca (China), minério em declínio, Vale cara</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot bear"></div>
+      <div><strong>Varejo</strong><div class="reason">Consumidor pressionado, juros altos, inflação combustível/comida</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot bear"></div>
+      <div><strong>Imobiliário</strong><div class="reason">Hipotecas caras, precisa Selic <12% para alívio real</div></div>
+    </div>
+    <div class="heat-item">
+      <div class="dot bear"></div>
+      <div><strong>Agronegócio</strong><div class="reason">Crise fertilizantes (Hormuz), preços ureia dobraram, margens zero</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════ 3. TOP 15 ════════════════════════ -->
+<section id="top15">
+<div class="container fade-in">
+  <h2><span class="section-num">03</span> Top 15 Ações Subvalorizadas</h2>
+  <p class="section-desc">Cruzamento de 5 fontes: screening quantitativo do banco, visões de gestores, análise geopolítica, consenso de corretoras e métricas de value investing.</p>
+
+  <h3>Tier 1 — Convicção Máxima <span class="source-count">(presença em 4-5 fontes)</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ticker</th>
+          <th>Empresa</th>
+          <th class="num">P/E</th>
+          <th class="num">DY</th>
+          <th class="num">ROE</th>
+          <th>Tese</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="ticker">PETR4</span></td>
+          <td class="company-name">Petrobras</td>
+          <td class="num">~5x</td>
+          <td class="num">8-14.8%</td>
+          <td class="num">Alto</td>
+          <td>Breakeven pré-sal <US$40 vs Brent US$100+. BTG upgrade (alvo R$56). Produção recorde 2.5M bpd. Risco político precificado.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="ticker">ITUB4</span></td>
+          <td class="company-name">Itaú Unibanco</td>
+          <td class="num">~10x</td>
+          <td class="num">~5%</td>
+          <td class="num">24.4%</td>
+          <td>Maior ROE entre bancos grandes. Lucro 4T25: R$12.3B. Ação mais recomendada mar/26. Beneficiário direto dos cortes.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="ticker">EMBR3</span></td>
+          <td class="company-name">Embraer</td>
+          <td class="num">~15x</td>
+          <td class="num">~1%</td>
+          <td class="num">Alto</td>
+          <td>Backlog recorde US$31.6B (+20%). Defesa +48%. C-390 vendendo para OTAN. Corrigiu ~20% em março = ponto de entrada.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="ticker">SUZB3</span></td>
+          <td class="company-name">Suzano</td>
+          <td class="num">4.7x</td>
+          <td class="num">6.8%</td>
+          <td class="num">30.5%</td>
+          <td>Maior produtora de celulose do mundo. Custo caixa mín. 4 anos. 17 analistas = Strong Buy. Hedge contra BRL fraco.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Tier 2 — Alta Convicção <span class="source-count">(presença em 3 fontes)</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ticker</th>
+          <th>Empresa</th>
+          <th class="num">P/E</th>
+          <th class="num">DY</th>
+          <th class="num">ROE</th>
+          <th>Tese</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5</td>
+          <td><span class="ticker">BBSE3</span></td>
+          <td class="company-name">BB Seguridade</td>
+          <td class="num">7.6x</td>
+          <td class="num">11-13%</td>
+          <td class="num">Alto</td>
+          <td>33% desc. vs múltiplo histórico. Lucro recorde 2025. R$5B em dividendos. Cash cow defensiva.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><span class="ticker">BBAS3</span></td>
+          <td class="company-name">Banco do Brasil</td>
+          <td class="num">9.7x</td>
+          <td class="num">5.9%</td>
+          <td class="num">~15%</td>
+          <td>P/B 0.68x — comprando R$1 de patrimônio por 68 centavos. "Queridinha" do Barsi. Crédito agrícola resiliente.</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><span class="ticker">PRIO3</span></td>
+          <td class="company-name">PRIO</td>
+          <td class="num">~8x</td>
+          <td class="num">Buyback</td>
+          <td class="num">Alto</td>
+          <td>FCFE yield 17%. Produção rumo a 200K bpd (Wahoo). Menor risco político que Petrobras. Petróleo >US$100.</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><span class="ticker">SBSP3</span></td>
+          <td class="company-name">Sabesp</td>
+          <td class="num">~12x</td>
+          <td class="num">~3%</td>
+          <td class="num">Crescendo</td>
+          <td>Pós-privatização: lucro +87%, capex +120%. Universalização até 2029. 13/15 analistas = Buy.</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><span class="ticker">TIMS3</span></td>
+          <td class="company-name">TIM</td>
+          <td class="num">6.5x</td>
+          <td class="num">6.8%</td>
+          <td class="num">18%</td>
+          <td>FCF yield extraordinário de 31.6%. Oligopólio racional. Dividendos crescentes. Score 19 no screening quant.</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><span class="ticker">VALE3</span></td>
+          <td class="company-name">Vale</td>
+          <td class="num">~5x</td>
+          <td class="num">~8%</td>
+          <td class="num">~12%</td>
+          <td>EV/EBITDA ~5x. Massivo gerador de FCF. China stimulus pode ser catalisador. Alvo BBI: R$102.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Tier 3 — Value + Catalisador Específico <span class="source-count">(screening quant + tese sólida)</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ticker</th>
+          <th>Empresa</th>
+          <th class="num">P/E</th>
+          <th>Tese</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>11</td>
+          <td><span class="ticker">VULC3</span></td>
+          <td class="company-name">Vulcabras</td>
+          <td class="num">4.8x</td>
+          <td>ROE 48%, margem líquida 32.7%. Qualidade excepcional a preço de pechincha. Dívida baixa (0.42x D/E).</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><span class="ticker">TAEE11</span></td>
+          <td class="company-name">Taesa</td>
+          <td class="num">6.9x</td>
+          <td>Transmissão regulada. DY 7.2%. Margem líquida 38%. Componente "BEST" da carteira Barsi.</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td><span class="ticker">ELET3</span></td>
+          <td class="company-name">Eletrobras</td>
+          <td class="num">~10x</td>
+          <td>DY ~8.3%. Maior utility LatAm. Pós-privatização. Transição energética. Buy consensus.</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td><span class="ticker">CXSE3</span></td>
+          <td class="company-name">Caixa Seguridade</td>
+          <td class="num">~9x</td>
+          <td>"Grande vaca leiteira de 2026" (BTG). DY projetado 8.9%. Rede Caixa = moat distributivo.</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td><span class="ticker">WEGE3</span></td>
+          <td class="company-name">WEG</td>
+          <td class="num">~30x</td>
+          <td>Premium justificado: data centers (R$500B investidos no BR), transição energética. Melhor empresa da bolsa.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════ 4. GESTORES ════════════════════════ -->
+<section id="gestores">
+<div class="container fade-in">
+  <h2><span class="section-num">04</span> O Que o Smart Money Está Fazendo</h2>
+  <p class="section-desc">Posicionamento e visões dos maiores gestores brasileiros extraídos de cartas, entrevistas e relatórios de corretoras.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>Luis Stuhlberger</h4>
+      <div class="card-sub">Verde Asset — Macro multimercado</div>
+      <ul>
+        <li>Comprado em <span class="highlight">ações brasileiras + real</span> (BRL 26% subvalorizado, justo R$4.40)</li>
+        <li>Long NTN-B 2035 + ouro</li>
+        <li><span class="highlight">Não compra o "Trade Tarcísio"</span></li>
+        <li>Zerou cripto entrando em 2026</li>
+        <li>+4.51% YTD (fev/26)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Henrique Bredda</h4>
+      <div class="card-sub">Alaska Asset — Deep value</div>
+      <ul>
+        <li>~45% em commodities: <span class="highlight">VALE3, PETR4, PRIO3, SLCE3, AURA33</span></li>
+        <li>Aposta contrarian: <span class="highlight">COGN3</span> (15% da empresa), <span class="highlight">MGLU3</span></li>
+        <li>Também RAIL3, ALSO3</li>
+        <li>100% Brasil, purely valuation-driven</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Luiz Barsi</h4>
+      <div class="card-sub">Investidor individual — Dividendos</div>
+      <ul>
+        <li>Core: <span class="highlight">BBAS3</span> ("queridinha"), <span class="highlight">KLBN11</span> (hold 30 anos)</li>
+        <li>CMIG4, TRPL4, TAEE11, SUZB3, TASA4, UNIP6</li>
+        <li>Framework BEST: Bancos, Elétricas, Saneamento, Telecom, Seguros</li>
+        <li>~R$1.65B em dividendos recebidos em 10 anos</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Rogério Xavier</h4>
+      <div class="card-sub">SPX Capital — Macro</div>
+      <ul>
+        <li>"Valuations muito atrativas" em 2026</li>
+        <li>Mudança de governo pode "destravar potencial"</li>
+        <li><span class="highlight">Alerta: risco de crédito</span> — spreads em mínimas históricas</li>
+        <li>Arcabouço fiscal vai colapsar — "questão de tempo"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Florian Bartunek</h4>
+      <div class="card-sub">Constellation — Quality compounder</div>
+      <ul>
+        <li>Core: <span class="highlight">B3SA3, RAIL3, LREN3, TOTS3, RENT3, FLRY3</span></li>
+        <li>~20 posições, top 5 = 40% exposição</li>
+        <li>Migrando para consumer discretionary + bancos</li>
+        <li>Long-only, ~90% net, sem alavancagem</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Consenso Corretoras</h4>
+      <div class="card-sub">BTG, XP, JPMorgan, Genial, Safra</div>
+      <ul>
+        <li><strong>BTG top 5:</strong> PRIO3, TEND3, ROXO34, EMBR3, CYRE3</li>
+        <li><strong>JPM overweight:</strong> NU, EMBR3, VALE3, PETR3, SUZB3, RENT3, SBSP3</li>
+        <li><strong>XP target:</strong> Ibovespa 196K (base) / 235K (bull)</li>
+        <li><strong>Safra:</strong> 198K. JPM: Brasil único overweight em LatAm</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Onde Concordam vs. Onde Discordam</h3>
+  <div class="consensus-grid">
+    <div class="agree-card">
+      <h4>Consenso</h4>
+      <ul>
+        <li><strong>Rotação global pró-EM</strong> beneficia Brasil (Stuhlberger, Xavier, Jakurski)</li>
+        <li><strong>Selic vai cair</strong> significativamente — consenso 11.25-12.75%</li>
+        <li><strong>BRL subvalorizado</strong> — Verde e SPX comprados em real</li>
+        <li><strong>Ouro como hedge</strong> geopolítico</li>
+        <li><strong>Ações brasileiras baratas</strong> vs histórico e pares EM</li>
+      </ul>
+    </div>
+    <div class="disagree-card">
+      <h4>Divergências</h4>
+      <ul>
+        <li><strong>Magazine Luiza:</strong> Alaska bull vs JPMorgan underweight</li>
+        <li><strong>Trade Tarcísio:</strong> Xavier/JPM acreditam vs Stuhlberger não compra</li>
+        <li><strong>Cogna:</strong> Alaska 15% da empresa vs Genial removeu</li>
+        <li><strong>Velocidade dos cortes:</strong> JGP (curto) vs Mar Asset (agressivo)</li>
+        <li><strong>Cemig:</strong> Barsi hold vs JPMorgan underweight</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Ações em Múltiplos Portfólios</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Empresa</th>
+          <th>Presente em</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="ticker">VALE3</span></td><td>Vale</td><td>Alaska, Genial, JPMorgan, XP</td></tr>
+        <tr><td><span class="ticker">PETR4</span></td><td>Petrobras</td><td>Alaska, JPMorgan, BTG</td></tr>
+        <tr><td><span class="ticker">EMBR3</span></td><td>Embraer</td><td>BTG Pactual, JPMorgan</td></tr>
+        <tr><td><span class="ticker">PRIO3</span></td><td>PRIO</td><td>Alaska, BTG Pactual</td></tr>
+        <tr><td><span class="ticker">RAIL3</span></td><td>Rumo</td><td>Alaska, Constellation</td></tr>
+        <tr><td><span class="ticker">RENT3</span></td><td>Localiza</td><td>Constellation, JPMorgan, Dynamo</td></tr>
+        <tr><td><span class="ticker">SUZB3</span></td><td>Suzano</td><td>JPMorgan, Barsi</td></tr>
+        <tr><td><span class="ticker">SBSP3</span></td><td>Sabesp</td><td>JPMorgan, BTG</td></tr>
+        <tr><td><span class="ticker">ALSO3</span></td><td>Allos</td><td>Alaska, JPMorgan, Genial</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════ 5. CATALISADORES ════════════════════════ -->
+<section id="catalisadores">
+<div class="container fade-in">
+  <h2><span class="section-num">05</span> Catalisadores de Curto Prazo</h2>
+  <p class="section-desc">Eventos que podem destravar valor nos próximos 3-6 meses.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>COPOM — 28-29/abr</h4>
+      <p>Se petróleo recuar, corte de 50bp é possível. Cada 100bp de corte = +4% lucro varejo (BTG). Gatilho para rally em ações sensíveis a juros.</p>
+    </div>
+    <div class="card">
+      <h4>Resolução Hormuz</h4>
+      <p>Sinalizações diplomáticas em 19-20/mar. Resolução derruba petróleo, acelera easing, fortalece BRL. Maior catalisador macro global.</p>
+    </div>
+    <div class="card">
+      <h4>Resultados 1T26</h4>
+      <p>BTG projeta 17% earnings growth (ex-PETR/VALE). Confirmação pode catalisar re-rating de múltiplos.</p>
+    </div>
+    <div class="card">
+      <h4>Small Caps</h4>
+      <p>SMLL negocia no maior desconto vs Ibovespa em 17 anos (6x vs 13.6x EV/EBITDA histórico). Cortes de juros historicamente disparam outperformance.</p>
+    </div>
+    <div class="card">
+      <h4>Privatizações</h4>
+      <p>Sanepar e Copasa são potenciais candidatas após sucesso de Copel e Sabesp. Qualquer sinalização gera repricing imediato.</p>
+    </div>
+    <div class="card">
+      <h4>Data Centers — R$500B</h4>
+      <p>ByteDance $38B, BlackRock/MS $40B, Amazon $1.8B, Microsoft $2.8B investidos no Brasil. Beneficia WEG, Equatorial, TOTVS.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════ 6. RISCOS ════════════════════════ -->
+<section id="riscos">
+<div class="container fade-in">
+  <h2><span class="section-num">06</span> Riscos Principais</h2>
+  <p class="section-desc">Fatores que podem invalidar a tese de valorização.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Risco</th>
+          <th>Probabilidade</th>
+          <th>Impacto</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Hormuz se prolonga</strong></td>
+          <td><span class="risk-bar" style="width:60px;background:var(--orange)"></span> Média-Alta</td>
+          <td><span class="risk-bar" style="width:80px;background:var(--red)"></span> Extremo</td>
+          <td>Selic não cai, inflação estoura 4.5%, mata tese bull inteira</td>
+        </tr>
+        <tr>
+          <td><strong>Estouro fiscal</strong></td>
+          <td><span class="risk-bar" style="width:50px;background:var(--yellow)"></span> Média</td>
+          <td><span class="risk-bar" style="width:70px;background:var(--orange)"></span> Alto</td>
+          <td>Ano eleitoral + isenção IR + dívida/PIB pode ir a 100%</td>
+        </tr>
+        <tr>
+          <td><strong>Volatilidade eleitoral</strong></td>
+          <td><span class="risk-bar" style="width:70px;background:var(--orange)"></span> Alta</td>
+          <td><span class="risk-bar" style="width:50px;background:var(--yellow)"></span> Médio</td>
+          <td>Lula 41% x Bolsonaro 41% — eleição mais binária da história</td>
+        </tr>
+        <tr>
+          <td><strong>China hard landing</strong></td>
+          <td><span class="risk-bar" style="width:40px;background:var(--yellow)"></span> Baixa-Média</td>
+          <td><span class="risk-bar" style="width:70px;background:var(--orange)"></span> Alto</td>
+          <td>Minério de ferro desaba, BRL enfraquece, contágio EM</td>
+        </tr>
+        <tr>
+          <td><strong>Reversão fluxo gringo</strong></td>
+          <td><span class="risk-bar" style="width:40px;background:var(--yellow)"></span> Baixa-Média</td>
+          <td><span class="risk-bar" style="width:70px;background:var(--orange)"></span> Alto</td>
+          <td>R$42.6B entraram rápido — podem sair na mesma velocidade</td>
+        </tr>
+        <tr>
+          <td><strong>Tributação dividendos</strong></td>
+          <td><span class="risk-bar" style="width:50px;background:var(--yellow)"></span> Média</td>
+          <td><span class="risk-bar" style="width:50px;background:var(--yellow)"></span> Médio</td>
+          <td>10% retenção sobre dividendos >R$50K/mês — negativo para yield plays</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════ 7. PORTFÓLIO ════════════════════════ -->
+<section id="portfolio">
+<div class="container fade-in">
+  <h2><span class="section-num">07</span> Sugestão de Portfólio</h2>
+  <p class="section-desc">Para investidor buy-and-hold fundamentalista que rebalanceia a cada 6-18 meses.</p>
+
+  <div class="portfolio-bar">
+    <div class="seg core">Core 60%</div>
+    <div class="seg sat">Satélite 30%</div>
+    <div class="seg spec">Espec. 10%</div>
+  </div>
+  <div class="portfolio-legend">
+    <span><span class="swatch" style="background:var(--green)"></span> Core — Value + yield + qualidade</span>
+    <span><span class="swatch" style="background:var(--accent)"></span> Satélite — Growth + catalisadores</span>
+    <span><span class="swatch" style="background:var(--yellow)"></span> Especulativo — Deep value quant</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Alocação</th>
+          <th>Ticker</th>
+          <th>Empresa</th>
+          <th>Papel no Portfólio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill t1">Core</span></td>
+          <td><span class="ticker">PETR4</span></td>
+          <td>Petrobras</td>
+          <td>Value + yield + proteção cambial</td>
+        </tr>
+        <tr>
+          <td><span class="pill t1">Core</span></td>
+          <td><span class="ticker">ITUB4</span></td>
+          <td>Itaú Unibanco</td>
+          <td>Qualidade + beneficiário Selic</td>
+        </tr>
+        <tr>
+          <td><span class="pill t1">Core</span></td>
+          <td><span class="ticker">SUZB3</span></td>
+          <td>Suzano</td>
+          <td>Exportador + hedge cambial + yield</td>
+        </tr>
+        <tr>
+          <td><span class="pill t1">Core</span></td>
+          <td><span class="ticker">BBSE3</span></td>
+          <td>BB Seguridade</td>
+          <td>Dividendos defensivos 11-13%</td>
+        </tr>
+        <tr>
+          <td><span class="pill t1">Core</span></td>
+          <td><span class="ticker">TIMS3</span></td>
+          <td>TIM</td>
+          <td>FCF yield 31.6% + dividendos</td>
+        </tr>
+        <tr>
+          <td><span class="pill t2">Satélite</span></td>
+          <td><span class="ticker">EMBR3</span></td>
+          <td>Embraer</td>
+          <td>Growth secular + defesa</td>
+        </tr>
+        <tr>
+          <td><span class="pill t2">Satélite</span></td>
+          <td><span class="ticker">SBSP3</span></td>
+          <td>Sabesp</td>
+          <td>Pós-privatização + infraestrutura</td>
+        </tr>
+        <tr>
+          <td><span class="pill t2">Satélite</span></td>
+          <td><span class="ticker">VALE3</span></td>
+          <td>Vale</td>
+          <td>Commodities + China optionality</td>
+        </tr>
+        <tr>
+          <td><span class="pill t2">Satélite</span></td>
+          <td><span class="ticker">ELET3</span></td>
+          <td>Eletrobras</td>
+          <td>Transição energética + yield 8.3%</td>
+        </tr>
+        <tr>
+          <td><span class="pill t2">Satélite</span></td>
+          <td><span class="ticker">PRIO3</span></td>
+          <td>PRIO</td>
+          <td>FCFE 17% + produção crescente</td>
+        </tr>
+        <tr>
+          <td><span class="pill t3">Espec.</span></td>
+          <td><span class="ticker">VULC3</span></td>
+          <td>Vulcabras</td>
+          <td>ROE 48% a P/E 4.8x</td>
+        </tr>
+        <tr>
+          <td><span class="pill t3">Espec.</span></td>
+          <td><span class="ticker">EALT3</span></td>
+          <td>Electro Aço Altona</td>
+          <td>Deep value: P/E 3.1x, P/B 0.91x</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <strong>Hedge natural:</strong> Exportadoras (SUZB3, EMBR3, PETR4) protegem contra desvalorização do BRL em cenário eleitoral adverso. O core combina yield, qualidade e proteção — não depende de um único cenário macro.
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════ FOOTER ════════════════════════ -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom: 8px;">Esta análise é educacional e baseada em dados públicos. Não constitui recomendação de investimento.</p>
+    <p>Gerado em 21/mar/2026 · <a href="https://github.com/gtwunsch/brazil-bolsa-beacon">Cartana Research</a> · 363 ações · 5 fontes cruzadas</p>
+  </div>
+</footer>
+
+<!-- ════════════════════════ JS ════════════════════════ -->
+<script>
+// Sticky nav active state
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav.toc a');
+
+function updateNav() {
+  const scrollY = window.scrollY + 80;
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    const bottom = top + section.offsetHeight;
+    const id = section.getAttribute('id');
+    const link = document.querySelector(`nav.toc a[href="#${id}"]`);
+    if (link) {
+      link.classList.toggle('active', scrollY >= top && scrollY < bottom);
+    }
+  });
+}
+
+// Fade-in on scroll
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+fadeEls.forEach(el => observer.observe(el));
+
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+
+// Smooth scroll
+document.querySelectorAll('nav.toc a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
