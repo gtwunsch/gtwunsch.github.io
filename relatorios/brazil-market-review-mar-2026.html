@@ -97,8 +97,9 @@ tr:hover td { background: rgba(108,140,255,0.04); }
 .quad.warn { border-color: var(--yellow); }
 .quad.risk { border-color: var(--orange); }
 
-/* Mobile: tables scroll horizontally */
+/* Tables inside scroll wrappers: sticky th doesn't work with overflow, so disable it */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0; }
+.table-wrap th { position: static; }
 
 @media (max-width: 768px) {
   .container { padding: 0 14px; }
@@ -109,57 +110,32 @@ tr:hover td { background: rgba(108,140,255,0.04); }
   section h2 { font-size: 18px; }
   section h3 { font-size: 15px; margin: 16px 0 10px; }
 
-  /* Nav scrolls horizontally on mobile */
   nav .container { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
   nav a { font-size: 12px; padding: 5px 10px; flex-shrink: 0; }
 
-  /* KPIs: 2 columns on mobile */
   .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .kpi { padding: 12px; }
   .kpi .value { font-size: 17px; }
   .kpi .label { font-size: 10px; }
   .kpi .delta { font-size: 11px; }
 
-  /* Cards: single column, smaller padding */
   .card-grid { grid-template-columns: 1fr; gap: 12px; }
   .card { padding: 14px; }
   .card h4 { font-size: 14px; flex-wrap: wrap; gap: 6px; }
   .card .metrics { gap: 6px; font-size: 11px; }
   .card p { font-size: 12px; }
 
-  /* Quadrants: single column */
   .quad-grid { grid-template-columns: 1fr; }
   .quad { padding: 14px; }
 
-  /* Heat grid: single column */
   .heat-grid { grid-template-columns: 1fr; }
 
-  /* Tables: reflow into card-style on narrow screens */
-  .table-wrap { margin: 12px -14px; padding: 0 14px; }
+  /* Tables: horizontally scrollable, no sticky header clipping */
   table { font-size: 12px; }
-  th, td { padding: 7px 6px; word-break: break-word; }
-  th { font-size: 10px; top: 44px; }
+  th, td { padding: 7px 6px; }
+  th { font-size: 10px; position: static; }
 
-  /* Wide tables (many columns) get horizontal scroll */
-  .table-wrap table { min-width: 0; width: 100%; }
-
-  /* Badges */
   .badge, .conf { font-size: 10px; padding: 2px 5px; }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-  .container { padding: 0 10px; }
-  .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-  .kpi .value { font-size: 15px; }
-
-  /* Convert wide tables to stacked cards */
-  .table-wide { display: block; }
-  .table-wide thead { display: none; }
-  .table-wide tbody, .table-wide tr { display: block; width: 100%; }
-  .table-wide tr { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 8px; }
-  .table-wide td { display: flex; justify-content: space-between; padding: 4px 0; border: none; font-size: 12px; }
-  .table-wide td::before { content: attr(data-label); font-weight: 600; color: var(--text2); font-size: 10px; text-transform: uppercase; margin-right: 12px; flex-shrink: 0; }
 }
 </style>
 </head>
