@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brazil Market Review — April 2026</title>
+<style>
+:root {
+  --bg: #0f1117;
+  --bg2: #1a1d27;
+  --bg3: #242836;
+  --border: #2d3348;
+  --text: #e4e6ed;
+  --text2: #9ba1b5;
+  --accent: #6c8cff;
+  --green: #34d399;
+  --red: #f87171;
+  --yellow: #fbbf24;
+  --orange: #fb923c;
+  --gold: #d4a520;
+  --cyan: #22d3ee;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+a { color: var(--accent); text-decoration: none; }
+.container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+nav { position: sticky; top: 0; z-index: 100; background: rgba(15,17,23,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 12px 0; }
+nav .container { display: flex; gap: 8px; overflow-x: auto; flex-wrap: wrap; }
+nav a { padding: 6px 14px; border-radius: 6px; font-size: 13px; color: var(--text2); white-space: nowrap; transition: all 0.2s; }
+nav a:hover { background: var(--bg3); color: var(--text); }
+header { padding: 48px 0 32px; border-bottom: 1px solid var(--border); }
+header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+header .subtitle { color: var(--text2); font-size: 15px; }
+.date-badge { display: inline-block; background: var(--accent); color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-bottom: 12px; }
+section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+section h2 { font-size: 22px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+section h3 { font-size: 17px; font-weight: 600; margin: 24px 0 12px; color: var(--accent); }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.kpi { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.kpi .label { font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; }
+.kpi .value { font-size: 22px; font-weight: 700; margin-top: 4px; }
+.kpi .delta { font-size: 12px; margin-top: 2px; }
+.kpi .delta.up { color: var(--green); }
+.kpi .delta.down { color: var(--red); }
+.kpi .delta.neutral { color: var(--yellow); }
+.tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: var(--bg3); color: var(--text2); font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; padding: 10px 12px; text-align: left; position: sticky; top: 52px; z-index: 10; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+tr:hover td { background: rgba(108,140,255,0.04); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.badge-sell { background: rgba(248,113,113,0.15); color: var(--red); }
+.badge-buy { background: rgba(52,211,153,0.15); color: var(--green); }
+.badge-hold { background: rgba(155,161,181,0.15); color: var(--text2); }
+.badge-hedge { background: rgba(212,165,32,0.15); color: var(--gold); }
+.badge-new { background: rgba(34,211,238,0.15); color: var(--cyan); }
+.conf { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.conf-vh { background: rgba(52,211,153,0.2); color: var(--green); }
+.conf-h { background: rgba(52,211,153,0.12); color: #6ee7b7; }
+.conf-m { background: rgba(251,191,36,0.12); color: var(--yellow); }
+.conf-l { background: rgba(248,113,113,0.12); color: var(--red); }
+.heat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+.heat-item { display: flex; align-items: center; gap: 10px; background: var(--bg2); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); }
+.heat-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.heat-dot.bull { background: var(--green); }
+.heat-dot.neutral { background: var(--yellow); }
+.heat-dot.bear { background: var(--red); }
+.heat-name { font-weight: 600; font-size: 13px; }
+.heat-reason { font-size: 11px; color: var(--text2); }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; }
+.card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.card.sell { border-left: 3px solid var(--red); }
+.card.buy { border-left: 3px solid var(--green); }
+.card.hedge { border-left: 3px solid var(--gold); }
+.card.change { border-left: 3px solid var(--cyan); }
+.card h4 { font-size: 16px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+.card .metrics { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; font-size: 12px; color: var(--text2); }
+.card .metrics span { background: var(--bg3); padding: 3px 8px; border-radius: 4px; }
+.card p { font-size: 13px; color: var(--text2); line-height: 1.5; }
+.quad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.quad { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.quad h4 { font-size: 14px; margin-bottom: 8px; }
+.quad .prob { font-size: 12px; color: var(--text2); margin-bottom: 8px; }
+.quad ul { font-size: 13px; padding-left: 18px; color: var(--text2); }
+.quad ul li { margin-bottom: 4px; }
+.quad.danger { border-color: var(--red); }
+.quad.ok { border-color: var(--green); }
+.quad.warn { border-color: var(--yellow); }
+.quad.risk { border-color: var(--orange); }
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .quad-grid { grid-template-columns: 1fr; }
+  nav .container { flex-wrap: nowrap; }
+  header h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="container">
+  <a href="#summary">Resumo</a>
+  <a href="#march">Marco &rarr; Abril</a>
+  <a href="#macro">Macro</a>
+  <a href="#sectors">Setores</a>
+  <a href="#fi-fii">RF & FIIs</a>
+  <a href="#cycles">Ciclos</a>
+  <a href="#picks">Recomendacoes</a>
+  <a href="#managers">Gestores</a>
+  <a href="#risks">Riscos</a>
+</div>
+</nav>
+
+<div class="container">
+
+<header>
+  <span class="date-badge">13 de Abril de 2026</span>
+  <h1>Brazil Market Review &mdash; April 2026</h1>
+  <p class="subtitle">11 agentes de pesquisa &middot; 7 dimensoes de analise &middot; Comparativo marco-abril</p>
+</header>
+
+<!-- ========== 1. RESUMO ========== -->
+<section id="summary">
+<h2>1. Resumo Executivo</h2>
+<p style="font-size:15px;line-height:1.8;margin-bottom:16px">O Ibovespa atingiu 197 mil pontos (maximo historico, +22,4% YTD) impulsionado por R$53,8B em fluxo estrangeiro no Q1 &mdash; o maior desde 2022. A Selic iniciou o ciclo de corte (14,75%, primeiro corte de 25bp em marco), com consenso Focus de 12,5% ao final de 2026. O choque geopolitico Iran/Hormuz elevou o Brent a $103/bbl, beneficiando exportadores de petroleo mas criando risco inflacionario via fertilizantes (+40%). NTN-B IPCA+ a 7,51% real e a oportunidade mais assimetrica do mercado &mdash; unanimidade entre os 7 agentes de pesquisa.</p>
+
+<div class="kpi-grid">
+  <div class="kpi"><div class="label">Ibovespa</div><div class="value">197K</div><div class="delta up">+22.4% YTD &middot; ATH</div></div>
+  <div class="kpi"><div class="label">Selic</div><div class="value">14.75%</div><div class="delta down">Corte iniciado. Focus: 12.5% YE</div></div>
+  <div class="kpi"><div class="label">IPCA 12m</div><div class="value">4.14%</div><div class="delta up">Focus: 4.71% YE &middot; Risco de breach</div></div>
+  <div class="kpi"><div class="label">BRL/USD</div><div class="value">R$ 5.00</div><div class="delta up">Maximo de 2 anos. Focus: R$5.37 YE</div></div>
+  <div class="kpi"><div class="label">Brent</div><div class="value">$103/bbl</div><div class="delta up">Pre-crise: $70s &middot; Hormuz premium</div></div>
+  <div class="kpi"><div class="label">P/L Forward Ibov</div><div class="value">9.25x</div><div class="delta neutral">Justo. 43% desconto vs EM (16.4x)</div></div>
+  <div class="kpi"><div class="label">Fluxo Estrangeiro Q1</div><div class="value">R$ 53.8B</div><div class="delta up">Maior desde 2022</div></div>
+  <div class="kpi"><div class="label">NTN-B IPCA+ 2035</div><div class="value">7.51%</div><div class="delta up">Raro: 12% dos dias na ultima decada</div></div>
+</div>
+</section>
+
+<!-- ========== 2. MARCH COMPARISON ========== -->
+<section id="march">
+<h2>2. De Marco a Abril: O Que Mudou</h2>
+
+<h3>Performance das Recomendacoes de Marco</h3>
+<p style="font-size:13px;color:var(--text2);margin-bottom:16px">O relatorio de marco recomendou compras em PRIO3, EMBR3, ODPV3 e WIZC3 como top picks. Em menos de 3 semanas, todas superaram o Ibovespa.</p>
+
+<div class="tbl-wrap">
+<table>
+<tr><th>Ticker</th><th>Recomendacao Marco</th><th>Retorno ~3 semanas</th><th>Avaliacao</th></tr>
+<tr><td>EMBR3 (Embraer)</td><td><span class="badge badge-buy">COMPRA</span></td><td style="color:var(--green)">+16-19%</td><td>Excelente &mdash; tese defesa/aero confirmada, backlog recorde</td></tr>
+<tr><td>ODPV3 (Odontoprev)</td><td><span class="badge badge-buy">COMPRA</span></td><td style="color:var(--green)">+9-13%</td><td>Muito bom &mdash; qualidade defensiva, ROE 45%</td></tr>
+<tr><td>WIZC3 (Wiz)</td><td><span class="badge badge-buy">COMPRA</span></td><td style="color:var(--green)">+11%</td><td>Bom &mdash; recuperacao do setor de seguros</td></tr>
+<tr><td>PRIO3 (PRIO)</td><td><span class="badge badge-buy">COMPRA</span></td><td style="color:var(--green)">+4-7%</td><td>Bom &mdash; petroleo $100+ sustenta tese</td></tr>
+<tr><td>NTN-B IPCA+ 2035</td><td><span class="badge badge-buy">FORTE COMPRA</span> 7/7</td><td style="color:var(--green)">Taxa ampliou de 7.3% para 7.51%</td><td>Reforçado &mdash; ainda mais atrativo</td></tr>
+<tr><td>Ouro (hedge)</td><td><span class="badge badge-hedge">HEDGE</span></td><td style="color:var(--yellow)">~flat a +5% (pos crash de -12% em marco)</td><td>Volatil &mdash; crash de marco mostrou risco de curto prazo</td></tr>
+</table>
+</div>
+
+<h3>Mudancas Estruturais Desde Marco</h3>
+<div class="card-grid">
+<div class="card change">
+<h4>Guerra Iran & Fechamento do Estreito de Hormuz</h4>
+<p>Em 28 de fevereiro, EUA e Israel iniciaram ataques coordenados ao Ira. O transito pelo Hormuz caiu 88% (de 130 para 17 navios/dia). Brent subiu de ~$70 para pico de $128, estabilizando em ~$103. Crise de fertilizantes: precos subiram 40%+ em um mes &mdash; Brasil depende quase 100% de fertilizantes importados. Cessar-fogo em 7 de abril, mas transito nao normalizado. Petroleo beneficia PETR4/PRIO3; fertilizantes ameacam margens agricolas.</p>
+</div>
+<div class="card change">
+<h4>Real Fortaleceu para R$5.00</h4>
+<p>De ~R$5.60-5.70 em marco para R$5.00 &mdash; mais forte desde marco de 2024. Impulsionado por R$53.8B em fluxo estrangeiro no Q1 e carry de 14.75% vs 3.5% do Fed. Muda o calculo para ativos em USD e torna exportadores (SUZB3, SLCE3) menos atrativos como compra imediata. Risco de reversao no H2 com volatilidade eleitoral.</p>
+</div>
+<div class="card change">
+<h4>Selic: Ciclo de Corte Iniciado</h4>
+<p>Copom cortou 25bp para 14.75% em marco &mdash; primeiro corte apos cinco manutencoes em 15%. Focus projeta 12.5% ao final de 2026 (275-300bp de cortes adicionais). NTN-B IPCA+ ampliou de 7.3% para 7.51% &mdash; oportunidade ainda mais rara. Risco: inflacao de petroleo/fertilizantes pode desacelerar o ritmo dos cortes.</p>
+</div>
+<div class="card change">
+<h4>Acordo EU-Mercosul & Tarifas EUA</h4>
+<p>EU-Mercosul assinado em 17 de janeiro, aprovado pelo Senado em 4 de marco. Aplicacao provisoria a partir de 1 de maio. Cota de carne bovina expandida (10K para 99K toneladas, tarifa 20%&rarr;7.5%). EUA mantem tarifas de 50% sobre aco brasileiro, mas aliviou para cafe, frutas e carne. Reorientacao comercial: exportacoes para China +38.7%, para EU +34.7%, para EUA -20.3%.</p>
+</div>
+<div class="card change">
+<h4>Eleicao 2026: Disputa Acirrada</h4>
+<p>Datafolha 11/abr: Flavio Bolsonaro 46% vs Lula 45% no 2o turno &mdash; primeira lideranca numerica da oposicao. AtlasIntel: Flavio 47.6% vs Lula 46.6%. 59% dizem que Lula nao merece mais 4 anos. Mercado positivo se direita vencer (disciplina fiscal), mas risco binario cria volatilidade no H2 2026.</p>
+</div>
+</div>
+
+<h3>Status das Recomendacoes de Marco</h3>
+<div class="tbl-wrap">
+<table>
+<tr><th>Recomendacao</th><th>Status Abril</th><th>Mudanca</th></tr>
+<tr><td>NTN-B IPCA+ 2035</td><td><span class="badge badge-buy">REFORÇADO</span></td><td>Taxa 7.3% &rarr; 7.51%. Ainda mais atrativo com ciclo de corte confirmado.</td></tr>
+<tr><td>EMBR3 (Compra)</td><td><span class="badge badge-hold">HOLD</span></td><td>+19% em 3 semanas. Proximo de targets. Nao adicionar, manter.</td></tr>
+<tr><td>PRIO3 (Compra)</td><td><span class="badge badge-hold">HOLD</span></td><td>Acima do target medio (R$62 vs R$68 atual). Nao adicionar.</td></tr>
+<tr><td>Ouro (Hedge)</td><td><span class="badge badge-hold">MANTER</span></td><td>Crash de -12% em marco e recuperacao mostram volatilidade. Alocacao de 3-5% e adequada; nao aumentar apos crash.</td></tr>
+<tr><td>Reducao Prefixado</td><td><span class="badge badge-buy">AINDA MAIS URGENTE</span></td><td>Choque de petroleo eleva expectativas de inflacao. Prefixado exposto.</td></tr>
+<tr><td>Reducao LFT/Selic</td><td><span class="badge badge-buy">REFORÇADO</span></td><td>Custo de oportunidade crescente com Selic em queda.</td></tr>
+<tr><td>Venda XINA11</td><td><span class="badge badge-sell">MANTER VENDA</span></td><td>China deflacionaria. Tese de marco inalterada.</td></tr>
+<tr><td>Adicionar exportadores (SUZB3)</td><td><span class="badge badge-hold">ESPERAR</span></td><td style="color:var(--yellow)">BRL a R$5.00 e o pior ponto de entrada para receita em USD. Aguardar R$5.20+.</td></tr>
+</table>
+</div>
+</section>
+
+<!-- ========== 3. MACRO ========== -->
+<section id="macro">
+<h2>3. Cenario Macro</h2>
+
+<h3>Indicadores-Chave</h3>
+<div class="tbl-wrap">
+<table>
+<tr><th>Indicador</th><th>Valor Atual</th><th>Projecao</th><th>Direcao</th></tr>
+<tr><td>Selic</td><td>14.75%</td><td>12.5% YE26 (Focus)</td><td style="color:var(--green)">Queda &mdash; ciclo de corte confirmado</td></tr>
+<tr><td>IPCA 12m</td><td>4.14%</td><td>4.71% YE26 (Focus)</td><td style="color:var(--red)">Alta &mdash; risco de breach da meta (4.5%)</td></tr>
+<tr><td>BRL/USD</td><td>R$5.00</td><td>R$5.37 YE26 (Focus)</td><td style="color:var(--yellow)">Forte agora, enfraquecimento provavel no H2</td></tr>
+<tr><td>PIB 2026</td><td>&mdash;</td><td>1.6-1.85% (BCB/Focus)</td><td style="color:var(--yellow)">Desaceleracao de 2.3% em 2025</td></tr>
+<tr><td>Brent</td><td>$103/bbl</td><td>$100+ se Hormuz fechado (Goldman)</td><td style="color:var(--red)">Risco de alta &mdash; premio geopolitico</td></tr>
+<tr><td>Fed Funds</td><td>3.50-3.75%</td><td>3.0-3.5% em 12m</td><td style="color:var(--green)">1-2 cortes esperados</td></tr>
+<tr><td>Divida/PIB</td><td>~80%</td><td>82-84% (IFI)</td><td style="color:var(--red)">Trajetoria ascendente &mdash; ano eleitoral</td></tr>
+<tr><td>Fluxo Estrangeiro Q1</td><td>R$53.8B</td><td>Desacelerando (marco: R$11.9B)</td><td style="color:var(--yellow)">Forte mas perdendo ritmo</td></tr>
+</table>
+</div>
+
+<h3>Temas Macro Dominantes</h3>
+<p style="font-size:14px;color:var(--text2)"><strong>Hormuz & Petroleo:</strong> Maior disrupcao de oferta da historia. Brent &gt;$100 beneficia Petrobras/PRIO mas taxa de exportacao de 12% imposta. Crise de fertilizantes ameaca safra 2026/27. <strong>Carry Trade:</strong> Selic 14.75% vs Fed 3.5% = 11pp de diferencial atraindo fluxo massivo. BRL em R$5.00 reflete isso. <strong>Inflacao:</strong> IPCA Focus de 4.71% provavelmente rompe o teto (4.5%) via passthrough de petroleo e fertilizantes. Pode desacelerar ritmo de cortes do Copom. <strong>Fiscal:</strong> Divida/PIB em trajetoria ascendente (80%&rarr;84%). Ano eleitoral limita disciplina. Taxa de exportacao de petroleo cria espaco fiscal mas enfrenta desafios legais. <strong>China:</strong> Exportacoes do Brasil para China +21.7% no Q1 a $23.89B. Brasil forneceu 73.6% das importacoes de soja da China. Relacao comercial se aprofunda estruturalmente.</p>
+</section>
+
+<!-- ========== 4. SETORES ========== -->
+<section id="sectors">
+<h2>4. Mapa Setorial</h2>
+
+<div class="heat-grid">
+  <div class="heat-item"><div class="heat-dot bull"></div><div><div class="heat-name">Petroleo & Gas</div><div class="heat-reason">4/7 OW &mdash; Brent $103, Hormuz, ramp pre-sal</div></div></div>
+  <div class="heat-item"><div class="heat-dot bull"></div><div><div class="heat-name">Utilities</div><div class="heat-reason">3/7 OW &mdash; Cortes Selic, retornos regulados, energia limpa</div></div></div>
+  <div class="heat-item"><div class="heat-dot bull"></div><div><div class="heat-name">Seguros</div><div class="heat-reason">2/7 OW &mdash; Baixa penetracao, float de Selic, defensivo</div></div></div>
+  <div class="heat-item"><div class="heat-dot bull"></div><div><div class="heat-name">Defesa & Aeroespacial</div><div class="heat-reason">2/7 OW &mdash; Gastos NATO, Embraer KC-390</div></div></div>
+  <div class="heat-item"><div class="heat-dot bull"></div><div><div class="heat-name">Infraestrutura</div><div class="heat-reason">2/7 OW &mdash; PAC, concessoes, gasto eleitoral</div></div></div>
+  <div class="heat-item"><div class="heat-dot neutral"></div><div><div class="heat-name">Bancos</div><div class="heat-reason">Neutro-OW &mdash; Cortes beneficiam NII, risco eleitoral governanca</div></div></div>
+  <div class="heat-item"><div class="heat-dot neutral"></div><div><div class="heat-name">Agronegocio</div><div class="heat-reason">Neutro-OW &mdash; Seguranca alimentar vs crise fertilizantes</div></div></div>
+  <div class="heat-item"><div class="heat-dot neutral"></div><div><div class="heat-name">Mineracao</div><div class="heat-reason">4/7 Neutro &mdash; Minerio H2 fraco, China incerta</div></div></div>
+  <div class="heat-item"><div class="heat-dot neutral"></div><div><div class="heat-name">Saude</div><div class="heat-reason">Neutro &mdash; Crescimento estrutural mas risco de execucao</div></div></div>
+  <div class="heat-item"><div class="heat-dot neutral"></div><div><div class="heat-name">Tecnologia</div><div class="heat-reason">Neutro &mdash; Tailwind de IA mas universo pequeno</div></div></div>
+  <div class="heat-item"><div class="heat-dot bear"></div><div><div class="heat-name">Varejo</div><div class="heat-reason">3/7 UW &mdash; Consumo fraco, Selic alta, disrupcao digital</div></div></div>
+  <div class="heat-item"><div class="heat-dot bear"></div><div><div class="heat-name">Siderurgia</div><div class="heat-reason">2/7 UW &mdash; Tarifas 50% EUA, importacoes chinesas</div></div></div>
+</div>
+</section>
+
+<!-- ========== 5. RF & FIIS ========== -->
+<section id="fi-fii">
+<h2>5. Renda Fixa & FIIs</h2>
+
+<h3>NTN-B IPCA+ &mdash; A Operacao Geracional</h3>
+<div class="card buy">
+<h4>IPCA+ 7.51% Real <span class="conf conf-vh">Unanimidade 7/7</span></h4>
+<div class="metrics"><span>Raridade: 12% dos dias na ultima decada</span><span>Se taxa comprimir para 5%: +13-91% de ganho de capital</span><span>Carry ate 2035: ~191% real acumulado</span></div>
+<p>A recomendacao de maior conviccao em todas as 7 dimensoes de pesquisa &mdash; e ainda mais forte que em marco (7.3%). O primeiro corte de Selic (14.75%) foi entregue. Focus projeta 12.5% ao final de 2026. Historicamente, toda vez que yields reais da IPCA+ ultrapassaram 7%, comprar e manter por 5+ anos produziu retornos de 150-300% reais. Duration intermediaria (2032-2035) oferece o melhor risco/retorno: convexidade suficiente para capturar ganhos de cortes sem volatilidade excessiva de ultra-longo (2045+).</p>
+</div>
+
+<h3>Comparativo de Yields</h3>
+<div class="tbl-wrap">
+<table>
+<tr><th>Instrumento</th><th>Yield</th><th>Duration</th><th>Sinal</th></tr>
+<tr><td>NTN-B IPCA+ 2035</td><td>IPCA+7.51% (~11.7% nominal)</td><td>8-9 anos</td><td><span class="badge badge-buy">FORTE COMPRA</span></td></tr>
+<tr><td>NTN-B IPCA+ 2029</td><td>~IPCA+7.0%</td><td>3 anos</td><td><span class="badge badge-buy">COMPRA (conservador)</span></td></tr>
+<tr><td>Tesouro Selic (LFT)</td><td>~14.75% (em queda)</td><td>0</td><td><span class="badge badge-sell">REDUZIR</span></td></tr>
+<tr><td>Prefixado (LTN 2031)</td><td>~11% fixo</td><td>5 anos</td><td><span class="badge badge-sell">REDUZIR</span></td></tr>
+<tr><td>CRA/CRI (high grade)</td><td>IPCA+6-9%</td><td>Varia</td><td><span class="badge badge-hold">MANTER &mdash; selecao critica</span></td></tr>
+<tr><td>US 10yr Treasury</td><td>4.31%</td><td>10 anos</td><td><span class="badge badge-hold">NEUTRO &mdash; NTN-B muito superior</span></td></tr>
+</table>
+</div>
+
+<h3>FIIs</h3>
+<p style="font-size:13px;color:var(--text2)"><strong>IFIX YTD:</strong> +3.49%. <strong>DY medio:</strong> 11.4%. <strong>P/VP medio:</strong> 0.89x (desconto). <strong>Spread FII sobre NTN-B:</strong> ~0.5-0.7pp nominal, ~2-3pp ajustado por IR &mdash; zona NEUTRA. O ciclo de corte de juros beneficiara FIIs ao longo do tempo, mas no momento NTN-B oferece melhor risco/retorno. Favorecemos logistica (vacancia em minimos historicos, oferta limitada) e recebiveis IPCA. Escritorios permanecem seletivos &mdash; apenas com P/VP &lt; 0.75x em localizacoes AAA. <strong>Alerta:</strong> defaults de CRI dobraram em 2024; Raizen pediu recuperacao extrajudicial de R$65B em marco 2026. Selecao de credito e primordial.</p>
+
+<h3>Framework de Alocacao Cross-Pillar</h3>
+<div class="tbl-wrap">
+<table>
+<tr><th>Metrica</th><th>Valor</th><th>Sinal</th></tr>
+<tr><td>DY FII - yield real NTN-B</td><td>~0.5-0.7pp (nominal), ~2-3pp (ajustado IR)</td><td>FIIs NEUTROS vs NTN-B</td></tr>
+<tr><td>Equity Risk Premium (1/PE - NTN-B real)</td><td>10.8% - 7.0% = 3.8%</td><td>Acoes FAIR vs bonds (historico 4-5%)</td></tr>
+<tr><td>Posicao Selic no ciclo</td><td>No pico ou proximo, primeiro corte entregue</td><td>NTN-B OVERWEIGHT &mdash; travar yields</td></tr>
+<tr><td>Gap yield real Brasil-EUA</td><td>~500-550bps</td><td>Favorecer bonds domesticos</td></tr>
+</table>
+</div>
+</section>
+
+<!-- ========== 6. CICLOS ========== -->
+<section id="cycles">
+<h2>6. Ciclos & Regimes</h2>
+
+<h3>Posicionamento nos Superciclos</h3>
+<div class="tbl-wrap">
+<table>
+<tr><th>Ciclo</th><th>Posicao</th><th>Implicacao</th></tr>
+<tr><td>Divida publica</td><td>Fase tardia (80% divida/PIB, subindo)</td><td>Premio fiscal mantem juros reais altos; hedge em ouro essencial</td></tr>
+<tr><td>Superciclo de commodities</td><td>Meio do ciclo (ano 5-6 de 10-15)</td><td>Brasil bem posicionado como produtor de energia + alimentos</td></tr>
+<tr><td>Regime de juros</td><td>Estruturalmente mais alto; pico ciclico</td><td>Travar IPCA+7.5% agora; piso da Selic ~9-10% (nao 6-7%)</td></tr>
+<tr><td>IA & produtividade</td><td>Fase inicial, impacto assimetrico (EUA capta mais)</td><td>Exposicao S&P 500 captura tema; Brasil = consumidor, nao produtor</td></tr>
+<tr><td>Desglobalizacao</td><td>Acelerando &mdash; Brasil como swing state</td><td>Seguranca alimentar + nearshoring beneficiam; fragmentacao e risco</td></tr>
+<tr><td>Demografia</td><td>Proximo da inflexao (razao de dependencia subindo)</td><td>Saude/seguros com crescimento estrutural; pressao fiscal previdenciaria</td></tr>
+</table>
+</div>
+
+<h3>Stress Test por Regime (Quadrantes de Dalio)</h3>
+<div class="quad-grid">
+  <div class="quad ok"><h4>Crescimento &uarr; + Inflacao &uarr; (Superaquecimento)</h4><div class="prob">Probabilidade: ~25%</div><ul><li>Ganha: Bancos, LFT/Selic, Petroleo, Ouro</li><li>Perde: Prefixado, FIIs, bonds longos</li></ul></div>
+  <div class="quad ok"><h4>Crescimento &uarr; + Inflacao &darr; (Goldilocks)</h4><div class="prob">Probabilidade: ~30% &mdash; consenso atual</div><ul><li>Ganha: IPCA+, Prefixado, FIIs, Acoes</li><li>Perde: USD (BRL fortalece), Ouro</li></ul></div>
+  <div class="quad danger"><h4>Crescimento &darr; + Inflacao &uarr; (Estagflacao)</h4><div class="prob">Probabilidade: ~25% &mdash; MAIOR VULNERABILIDADE</div><ul><li>Ganha: USD, Ouro, LFT/Selic</li><li>Perde: Bancos, FIIs, Prefixado, Industriais</li><li style="color:var(--red)"><strong>Cenario mais perigoso para carteiras BR-centradas</strong></li></ul></div>
+  <div class="quad warn"><h4>Crescimento &darr; + Inflacao &darr; (Deflacao)</h4><div class="prob">Probabilidade: ~20%</div><ul><li>Ganha: IPCA+ longo, Prefixado, Ouro, USD bonds</li><li>Perde: Bancos, Petroleo, Acoes em geral</li></ul></div>
+</div>
+</section>
+
+<!-- ========== 7. RECOMENDACOES ========== -->
+<section id="picks">
+<h2>7. Recomendacoes Abril 2026</h2>
+
+<h3>Classe de Ativos</h3>
+<div class="tbl-wrap">
+<table>
+<tr><th>Classe</th><th>Direcao</th><th>Convergencia</th><th>Racional</th></tr>
+<tr><td><strong>NTN-B IPCA+ (2032-2035)</strong></td><td><span class="badge badge-buy">FORTE AUMENTO</span></td><td><span class="conf conf-vh">7/7</span></td><td>7.51% real, raridade historica, ciclo de corte iniciado, upside assimetrico</td></tr>
+<tr><td>Tesouro Selic (LFT)</td><td><span class="badge badge-sell">REDUZIR</span></td><td>5/7</td><td>Retornos cairao com Selic; migrar para IPCA+</td></tr>
+<tr><td>Prefixado (LTN)</td><td><span class="badge badge-sell">REDUZIR</span></td><td>5/7</td><td>Vulneravel em 3/4 regimes; risco de surpresa inflacionaria</td></tr>
+<tr><td>Ouro</td><td><span class="badge badge-hold">MANTER</span></td><td>4/7</td><td>Todos os top gestores comprados; protege 3/4 regimes. Nao adicionar apos crash de marco.</td></tr>
+<tr><td>FIIs</td><td><span class="badge badge-hold">NEUTRO</span></td><td>4/7</td><td>Spread sobre NTN-B fino; ciclo de corte ajuda no medio prazo. Preferir logistica e IPCA.</td></tr>
+<tr><td>Acoes BR</td><td><span class="badge badge-hold">NEUTRO-OW</span></td><td>4/7</td><td>P/L forward 9.25x justo; -43% desconto vs EM; catalisador de corte de juros</td></tr>
+<tr><td>Small Caps</td><td><span class="badge badge-buy">OVERWEIGHT</span></td><td>2/7</td><td>33% abaixo da media historica &mdash; maior desconto em 6+ anos</td></tr>
+<tr><td>Internacional/USD</td><td><span class="badge badge-hold">MANTER ~15-20%</span></td><td>4/7</td><td>Hedge adequado; adicionar USD bonds dentro da alocacao intl</td></tr>
+</table>
+</div>
+
+<h3>Sinais de Compra &mdash; Top Picks</h3>
+<div class="card-grid">
+
+<div class="card buy">
+<h4>PRIO3 (PRIO) <span class="conf conf-h">5/7</span></h4>
+<div class="metrics"><span>P/L 10.2x</span><span>Producao 200k+ bpd</span><span>Breakeven $40/bbl</span><span>BTG top pick</span></div>
+<p>Maior produtora independente de petroleo do Brasil com ROE ~39%, custos de extracao entre os mais baixos globalmente (~$9/bbl), e 100% de receita em dolar. Producao bateu recorde de 155.5K boepd em marco. Com Brent a $103, gera caixa massivo. Porem, preco atual (R$68) ja acima do target medio de R$62 &mdash; para quem ja tem, manter. Para novas entradas, aguardar pullback.</p>
+</div>
+
+<div class="card buy">
+<h4>EMBR3 (Embraer) <span class="conf conf-h">5/7</span></h4>
+<div class="metrics"><span>Backlog US$31.6B recorde</span><span>KC-390 NATO</span><span>JPM target R$109</span></div>
+<p>Backlog recorde impulsionado por encomendas militares da NATO (KC-390 para Suecia, Polonia, Hungria) e ciclo de aviacao comercial (Finnair 46 E195-E2s). Gastos de defesa globais acelerando. Revenue guidance superado em 2025. Historia estrutural multi-ano. Subiu +19% desde marco &mdash; para quem ja tem, manter. Para novas entradas, JPM target R$109 implica +25% de upside mas entrada esta mais esticada.</p>
+</div>
+
+<div class="card buy">
+<h4>ELET3 (Eletrobras) <span class="conf conf-h">4/7</span></h4>
+<div class="metrics"><span>P/L 9.8x</span><span>DY 8.3% projetado</span><span>Maior geradora LatAm</span><span>Pos-privatizacao</span></div>
+<p>Maior geradora de energia da America Latina, com ganhos de eficiencia pos-privatizacao ainda em estagios iniciais. Cortes de Selic elevam diretamente valuations DCF para utilities reguladas. Matriz limpa (85%+ hidro) fornece premio ESG. Multiplas recomendacoes de corretoras para abril 2026. Retorno total esperado de 26.6%.</p>
+</div>
+
+<div class="card buy">
+<h4>VULC3 (Vulcabras) <span class="conf conf-m">3/7</span></h4>
+<div class="metrics"><span>P/L 4.5-8x</span><span>ROE 48%</span><span>Divida liquida zero</span><span>#1 tela quantitativa (25/28)</span></div>
+<p>Dona da Olympikus, lider em calcados esportivos no Brasil. Estatisticamente a acao mais atrativa da B3: P/L abaixo de 8x com ROE de 48% e caixa liquido. DY de 8.2% (2026E, ajustado apos mudanca de politica de dividendos). Dominio de marca fornece poder de precificacao. Risco: concentracao em uma unica marca/segmento.</p>
+</div>
+
+<div class="card buy">
+<h4>BBAS3 (Banco do Brasil) <span class="conf conf-m">3/7</span></h4>
+<div class="metrics"><span>P/L ~5x</span><span>ROE ~20%</span><span>DY ~10%</span><span>10 recomendacoes de corretoras</span></div>
+<p>O banco mais barato entre os grandes brasileiros, com P/L ~5x, ROE ~20% e DY ~10%. Desconto de estatal parece excessivo dado entrega consistente de lucros. Barsi mantem como posicao core. Em 10 carteiras recomendadas de corretoras para abril. Risco: governanca se governo usar BB para expansao de credito pre-eleicao.</p>
+</div>
+
+<div class="card buy">
+<h4>BBSE3 (BB Seguridade) <span class="conf conf-m">3/7</span></h4>
+<div class="metrics"><span>ROE ~60%</span><span>DY ~8%</span><span>Penetracao seguros 3.5% PIB</span></div>
+<p>Braco de distribuicao de seguros do BB com acesso a 3.000+ agencias e 80M+ clientes. Alavancagem quase zero, ROE excepcional, e fluxo de receitas previsivel. Penetracao de seguros no Brasil e 3.5% do PIB vs 10%+ em paises desenvolvidos &mdash; runway de crescimento estrutural de varios anos.</p>
+</div>
+
+<div class="card buy">
+<h4>CPLE3 (Copel) <span class="conf conf-m">3/7</span></h4>
+<div class="metrics"><span>DY >8%</span><span>P/VP <1.0</span><span>Pos-privatizacao</span></div>
+<p>Utility paranaense recem-privatizada. Adicionada a multiplas carteiras de corretoras em abril 2026 (Genial, XP, BB Investimentos). Negociando abaixo do valor patrimonial com DY acima de 8%. Ganhos de eficiencia pos-privatizacao comecando a fluir. Cortes de Selic amplificam re-rating.</p>
+</div>
+
+<div class="card buy">
+<h4>CURY3 (Cury) <span class="conf conf-m">2/7</span></h4>
+<div class="metrics"><span>ROIC 34%</span><span>Maior entre construtoras</span><span>MCMV</span></div>
+<p>Maior ROIC entre construtoras (34%), beneficiaria direta do programa Minha Casa Minha Vida. Habitacao de baixa renda e estruturalmente subpenetrada no Brasil. Modelo capital-light gera FCF excepcional. Cada 100bp de corte de Selic expande o pool de qualificacao para hipotecas.</p>
+</div>
+
+<div class="card buy">
+<h4>POMO4 (Marcopolo) <span class="conf conf-m">2/7</span></h4>
+<div class="metrics"><span>P/L ~6x</span><span>ROIC 21%</span><span>DY ~9% esperado</span><span>Margem EBITDA 18.4%</span></div>
+<p>A ~6x lucros forward com 21% ROIC e margem EBITDA de 18.4%, combina valor profundo com excelencia operacional. Ciclo de renovacao de frota de transporte urbano no Brasil + exportacoes para LatAm/Africa fornecem visibilidade de lucros multi-ano. Target de R$9.50 implica ~31% de upside.</p>
+</div>
+
+</div>
+
+<h3>Sinais de Venda / Evitar</h3>
+<div class="card-grid">
+
+<div class="card sell">
+<h4>CSNA3 (CSN) <span class="conf conf-h">4/7</span></h4>
+<div class="metrics"><span>Net Debt/EBITDA 3.47x e SUBINDO</span><span>Tarifas 50% EUA</span><span>Importacoes chinesas</span></div>
+<p>Pior perfil de alavancagem entre os grandes industriais brasileiros. Producao de aco em declinio, sem diversificacao geografica (diferente da Gerdau), e exposicao direta a competicao de importacoes chinesas. Lucros e margens comprimindo simultaneamente com divida subindo: padrao textbook de deterioracao estrutural.</p>
+</div>
+
+<div class="card sell">
+<h4>BHIA3 (Casas Bahia) <span class="conf conf-m">2/7</span></h4>
+<div class="metrics"><span>>90% abaixo do pico</span><span>Queima de caixa cronica</span><span>Ameaca existencial</span></div>
+<p>Obsolescencia estrutural do modelo de negocios. Ameaca competitiva existencial de Mercado Livre, Shopee e Amazon. ROE profundamente negativo por 3+ anos. Alavancagem insustentavel. Sem caminho credivel para lucratividade sustentavel. Valor patrimonial em risco de zero.</p>
+</div>
+
+<div class="card sell">
+<h4>MGLU3 (Magazine Luiza) <span class="conf conf-m">3/7</span></h4>
+<div class="metrics"><span>Disrupcao competitiva</span><span>Sensibilidade a Selic</span><span>XP neutral</span></div>
+<p>Posicao competitiva de longo prazo deteriorando conforme MELI, Shopee, Amazon e Shein capturam market share em marketplace e 1P. Alta sensibilidade a Selic e aperto de credito ao consumidor comprimem demanda por bens duraveis. XP com rating neutro e target flat de R$11.</p>
+</div>
+
+<div class="card sell">
+<h4>HAPV3 (Hapvida) <span class="conf conf-m">2/7</span></h4>
+<div class="metrics"><span>-57% em 2025</span><span>>90% abaixo do pico</span><span>MLR fora do target</span></div>
+<p>Apesar de ser a maior operadora de saude por vidas cobertas, integracao pos-fusao com NDI foi desastrosa. Targets de sinistralidade repetidamente nao atingidos, custos de litigio disparando. Modelo de lideranca em custos minado por pressoes regulatorias e de utilizacao.</p>
+</div>
+
+<div class="card sell">
+<h4>COGN3 (Cogna) <span class="conf conf-m">2/7</span></h4>
+<div class="metrics"><span>ROE negativo 3+ anos</span><span>Matriculas em declinio</span><span>Disrupcao EAD</span></div>
+<p>Declinio estrutural de matriculas no ensino superior presencial devido a headwinds demograficos e competicao de EAD. ROE negativo/negligivel por multiplos anos. Carga de divida restringe flexibilidade estrategica. Sem ponto de inflexao de margem visivel.</p>
+</div>
+
+<div class="card sell">
+<h4>CVCB3 (CVC Brasil) <span class="conf conf-m">2/7</span></h4>
+<div class="metrics"><span>Prejuizo liquido recorrente</span><span>Desintermediacao digital</span></div>
+<p>Desintermediacao estrutural por plataformas digitais (Booking.com, Decolar, vendas diretas de cias aereas). Prejuizos recorrentes, divida insustentavel, e modelo de agencia de viagens tradicional enfrenta obsolescencia secular. Sem caminho claro para reposicionamento competitivo.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ========== 8. GESTORES ========== -->
+<section id="managers">
+<h2>8. Consenso de Gestores & Corretoras</h2>
+
+<h3>Posicionamento dos Principais Gestores</h3>
+<div class="tbl-wrap">
+<table>
+<tr><th>Gestor</th><th>Tese Macro</th><th>Posicionamento</th><th>Picks Chave</th></tr>
+<tr><td><strong>Stuhlberger (Verde)</strong></td><td>Cautelosamente construtivo Brasil. 50/50 eleicao.</td><td>Aumentou acoes BR. Long NTN-B 2035. Long ouro. Long BRL via opcoes.</td><td>Retorno: +4.19% em marco (melhor em 12m)</td></tr>
+<tr><td><strong>Xavier (SPX)</strong></td><td>Bullish emergentes, pro-Brasil.</td><td>60-70% risco em intl. Construtivo domestico.</td><td>Credito em minimas historicas e risco</td></tr>
+<tr><td><strong>Jakurski (JGP)</strong></td><td>Dolar sobrevalorizado. Selic "escorchante".</td><td>Posicao mais leve em anos. Long prata e ouro.</td><td>"Enquanto capital estrangeiro fluir, estrategia dominante e estar comprado"</td></tr>
+<tr><td><strong>Bredda (Alaska)</strong></td><td>Deep value, FCF longo prazo.</td><td>Liderou ganhos entre fundos de acoes no Q1.</td><td>Reduziu Vale e Petrobras; aumentou Suzano e Klabin</td></tr>
+<tr><td><strong>Bartunek (Constellation)</strong></td><td>"A moeda te mata" &mdash; carteira macro-proof.</td><td>100% stock-picking de qualidade.</td><td>B3, Localiza, Raia Drogasil, WEG, Renner, Totvs</td></tr>
+<tr><td><strong>Woelz (Kapitalo)</strong></td><td>Mais bearish &mdash; risco de recessao EUA.</td><td>Underweight ativos de risco.</td><td>Perdeu -11% em marco (short petroleo + long corte juros)</td></tr>
+</table>
+</div>
+
+<h3>Ranking de Corretoras &mdash; Acoes Mais Recomendadas (Abril 2026)</h3>
+<div class="tbl-wrap">
+<table>
+<tr><th>Rank</th><th>Acao</th><th>Ticker</th><th>Recomendacoes</th><th>Setor</th></tr>
+<tr><td>1</td><td>Itau Unibanco</td><td>ITUB4</td><td>10</td><td>Bancos</td></tr>
+<tr><td>2</td><td>Vale</td><td>VALE3</td><td>10</td><td>Mineracao</td></tr>
+<tr><td>3</td><td>Petrobras</td><td>PETR4</td><td>9</td><td>Petroleo</td></tr>
+<tr><td>4</td><td>Bradesco / Auren / BTG / WEG / Direcional / PRIO</td><td>BBDC4 / AURE3 / BPAC11 / WEGE3 / DIRR3 / PRIO3</td><td>4 cada</td><td>Diversos</td></tr>
+<tr><td>10</td><td>Embraer / BB Seg / Localiza / Sabesp / Vivo / Vibra / B3 / Copel / Rede D'Or</td><td>EMBR3 / BBSE3 / RENT3 / SBSP3 / VIVT3 / VBBR3 / B3SA3 / CPLE3 / RDOR3</td><td>3 cada</td><td>Diversos</td></tr>
+</table>
+</div>
+
+<h3>Onde Gestores Concordam</h3>
+<p style="font-size:13px;color:var(--text2)">Fluxo estrangeiro e O driver do rally do Ibovespa, nao fundamentos domesticos. Juros reais estao altos demais e vao cair. NTN-B/bonds indexados a inflacao sao a melhor oportunidade risco-ajustada. Dolar vai continuar enfraquecendo. Eleicao 2026 cria risco binario mas e 50/50. Ouro como hedge e essencial.</p>
+
+<h3>Onde Gestores Discordam</h3>
+<p style="font-size:13px;color:var(--text2)"><strong>Stuhlberger:</strong> Recusa precificar qualquer resultado eleitoral. <strong>Jakurski:</strong> Mais agressivo em cortes de juros (minimo 3pp); posicao mais leve em anos apesar de ser bullish em fluxo EM. <strong>Woelz/Kapitalo:</strong> Mais bearish globalmente &mdash; risco de recessao EUA subestimado. <strong>Bartunek:</strong> Mais micro-focado &mdash; nao liga para macro. <strong>Bredda/Alaska:</strong> Mais contrarian dentro de acoes &mdash; reduzindo blue-chip commodities, overweight celulose.</p>
+
+<h3>Movimentos Contrarian Notaveis</h3>
+<div class="tbl-wrap">
+<table>
+<tr><th>Movimento</th><th>Quem</th><th>Contexto</th></tr>
+<tr><td>Reduzindo Petrobras e Vale</td><td>Alaska (Bredda)</td><td>Enquanto corretoras colocam como top picks (9-10 recs cada). Aumentando Suzano/Klabin.</td></tr>
+<tr><td>Bearish em ativos de risco</td><td>Kapitalo (Woelz)</td><td>Enquanto consenso e bullish em "kit Brasil".</td></tr>
+<tr><td>Posicao mais leve em anos</td><td>JGP (Jakurski)</td><td>Apesar de ser flow-bullish &mdash; esperando melhor entrada ou volatilidade.</td></tr>
+<tr><td>Saiu de cripto inteiramente</td><td>Verde (Stuhlberger)</td><td>Enquanto interesse institucional permanece.</td></tr>
+<tr><td>Varejo ainda em renda fixa</td><td>Investidores PF</td><td>R$130.3B inflows para RF no Q1 vs R$11.2B para multimercados &mdash; potencial de upside se varejo seguir profissionais para acoes.</td></tr>
+</table>
+</div>
+</section>
+
+<!-- ========== 9. RISCOS ========== -->
+<section id="risks">
+<h2>9. Avaliacao de Riscos</h2>
+
+<div class="card-grid">
+
+<div class="card sell">
+<h4>Escalada Iran / Hormuz Prolongado</h4>
+<p>Se o fechamento se estender alem do Q2, Brent pode atingir $130+, IPCA pode romper 5.5%, e Copom pode pausar o ciclo de corte. Crise de fertilizantes poderia reduzir producao agricola 2026/27 em 10-15%, impactando PIB agro e receitas de exportacao. Goldman alerta para cascata de inflacao alimentar global.</p>
+</div>
+
+<div class="card sell">
+<h4>Volatilidade Eleitoral (H2 2026)</h4>
+<p>Flavio Bolsonaro liderando/empatado com Lula cria incerteza de politica binaria. Governo pode aumentar gastos para impulsionar reeleicao, pressionando o arcabouco fiscal. Risco de divida/PIB ultrapassar 85%. Mercado pode desriscar no Q3 conforme candidaturas se solidifiquem. SOEs (Petrobras, BB, Eletrobras) enfrentam risco de governanca.</p>
+</div>
+
+<div class="card sell">
+<h4>Inflacao Acima do Esperado</h4>
+<p>IPCA Focus de 4.71% ja acima do centro da meta (3%). Se passthrough de petroleo + fertilizantes empurrar para 5%+, Copom pode desacelerar cortes significativamente. Isso atrasaria ganhos de capital em NTN-B e prejudicaria nomes sensiveis a juros (utilities, FIIs, real estate). Prefixado e especialmente vulneravel.</p>
+</div>
+
+<div class="card sell">
+<h4>Estagflacao (Pior Cenario)</h4>
+<p>Choque de petroleo + expansao fiscal + recessao global = crescimento em queda + inflacao em alta. Bancos, FIIs e prefixado todos sofrem. Este e o cenario mais perigoso para carteiras centradas no Brasil. Protecoes: ouro, USD, NTN-B IPCA+ (protecao inflacionaria + carry alto).</p>
+</div>
+
+<div class="card sell">
+<h4>Desaceleracao da China</h4>
+<p>Se crise imobiliaria chinesa se aprofundar, minerio de ferro cai abaixo de $90 e arrasta setor de mineracao. Brasil forneceu 73.6% da soja importada pela China &mdash; qualquer fraqueza na demanda chinesa impacta diretamente. Consenso ve minerio estavel no H1 mas fraco no H2 2026.</p>
+</div>
+
+</div>
+</section>
+
+</div>
+
+<footer style="padding:40px 0;text-align:center;color:var(--text2);font-size:12px;border-top:1px solid var(--border)">
+  <p>Cartana Research &mdash; Brazil Market Review &mdash; Abril 2026</p>
+  <p style="margin-top:4px">11 agentes de pesquisa &middot; 7 dimensoes &middot; Analise multi-dimensional</p>
+</footer>
+
+</body>
+</html>
